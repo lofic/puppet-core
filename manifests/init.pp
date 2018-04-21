@@ -6,6 +6,7 @@ class core {
     and ($facts['os']['release']['major'] == '7') {
 
         package { 'bind-utils' :      ensure => present, }
+        package { 'bash-completion' : ensure => present, }
         package { 'curl' :            ensure => present, }
         package { 'man' :             ensure => present, }
         package { 'openssh-clients' : ensure => present, }
