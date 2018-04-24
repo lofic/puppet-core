@@ -1,7 +1,7 @@
 # Provide some core packages and features that I really want on every machine.
 # Set the package list in hiera for a per-OS basis.
 
-class core($packages) {
+class core(Array $packages=[]) {
 
     package { $packages: ensure => present }
 
