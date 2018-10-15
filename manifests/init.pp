@@ -3,7 +3,11 @@
 
 class core(Array $packages=[]) {
 
-    package { $packages: ensure => present }
+    include yum   # Does nothing if $::osfamily != 'RedHat'
+    package { $packages:
+        ensure  => present,
+        require => Class['yum'],
+    }
 
     if  ($facts['os']['family'] == 'RedHat')
     and ($facts['os']['release']['major'] == '7') {
